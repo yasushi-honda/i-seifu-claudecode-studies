@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取扱説明書 - プログラミングスクール生徒名簿</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .manual-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .manual-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .manual-header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .back-btn {
+            background: white;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        .shortcut-table th,
+        .shortcut-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .shortcut-table th {
+            background: #f5f5f5;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .code-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .info {
+            background: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #0c5460;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="manual-container">
+        <div class="manual-header">
+            <h1>📖 取扱説明書</h1>
+            <a href="index.html" class="back-btn">← 名簿へ戻る</a>
+        </div>
+
+        <div class="section">
+            <h2>1. システム概要</h2>
+            <p>プログラミングスクール生徒名簿管理システムは、生徒情報を効率的に管理するためのWebアプリケーションです。</p>
+            <ul class="feature-list">
+                <li>生徒情報の登録・編集・削除</li>
+                <li>リアルタイム検索機能</li>
+                <li>性別によるフィルタリング</li>
+                <li>CSVファイルへのエクスポート機能</li>
+                <li>統計情報の自動表示</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>2. 基本操作</h2>
+            
+            <h3>生徒の追加</h3>
+            <ol>
+                <li>画面上部の「+ 生徒を追加」ボタンをクリック</li>
+                <li>表示されるフォームに以下の情報を入力
+                    <ul>
+                        <li>氏名（必須）</li>
+                        <li>ふりがな（必須）</li>
+                        <li>生年月日（必須）</li>
+                        <li>性別（必須）</li>
+                        <li>得意分野（必須）</li>
+                    </ul>
+                </li>
+                <li>「保存」ボタンをクリックして登録完了</li>
+            </ol>
+
+            <h3>生徒情報の編集</h3>
+            <ol>
+                <li>編集したい生徒の行にある「編集」ボタンをクリック</li>
+                <li>表示されるフォームで情報を修正</li>
+                <li>「保存」ボタンをクリックして変更を適用</li>
+            </ol>
+
+            <h3>生徒の削除</h3>
+            <div class="warning">
+                <strong>注意:</strong> 削除操作は取り消せません。削除前に必ず確認してください。
+            </div>
+            <ol>
+                <li>削除したい生徒の行にある「削除」ボタンをクリック</li>
+                <li>確認ダイアログで「OK」をクリック</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>3. 検索・フィルター機能</h2>
+            
+            <h3>検索機能</h3>
+            <p>検索ボックスに以下の情報を入力すると、リアルタイムで検索結果が表示されます：</p>
+            <ul class="feature-list">
+                <li>氏名（部分一致）</li>
+                <li>ふりがな（部分一致）</li>
+                <li>得意分野（部分一致）</li>
+            </ul>
+
+            <h3>フィルター機能</h3>
+            <p>性別でフィルタリングが可能です：</p>
+            <ul>
+                <li><strong>全て:</strong> すべての生徒を表示</li>
+                <li><strong>男子:</strong> 男性の生徒のみ表示</li>
+                <li><strong>女子:</strong> 女性の生徒のみ表示</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. データのエクスポート</h2>
+            <p>生徒データはCSV形式でエクスポートできます。</p>
+            <div class="info">
+                <strong>ヒント:</strong> エクスポートされたCSVファイルは、ExcelやGoogleスプレッドシートで開くことができます。
+            </div>
+            <h3>エクスポート手順</h3>
+            <ol>
+                <li>ブラウザの開発者ツールを開く（F12キー）</li>
+                <li>コンソールタブを選択</li>
+                <li>以下のコマンドを入力：
+                    <div class="code-block">downloadCSV()</div>
+                </li>
+                <li>Enterキーを押すとCSVファイルがダウンロードされます</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>5. キーボードショートカット</h2>
+            <table class="shortcut-table">
+                <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>ショートカット</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>検索ボックスにフォーカス</td>
+                        <td>Ctrl + F (Windows) / Cmd + F (Mac)</td>
+                    </tr>
+                    <tr>
+                        <td>モーダルを閉じる</td>
+                        <td>Esc</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>6. トラブルシューティング</h2>
+            
+            <h3>データが表示されない場合</h3>
+            <ul>
+                <li>ブラウザのキャッシュをクリアして再読み込み</li>
+                <li>JavaScriptが有効になっているか確認</li>
+                <li>コンソールにエラーが表示されていないか確認</li>
+            </ul>
+
+            <h3>保存できない場合</h3>
+            <ul>
+                <li>必須項目がすべて入力されているか確認</li>
+                <li>生年月日の形式が正しいか確認</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. 推奨環境</h2>
+            <ul class="feature-list">
+                <li>Chrome 90以降</li>
+                <li>Firefox 88以降</li>
+                <li>Safari 14以降</li>
+                <li>Edge 90以降</li>
+            </ul>
+            <div class="info">
+                <strong>注:</strong> Internet Explorerはサポートされていません。
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. お問い合わせ</h2>
+            <p>システムに関するご質問や不具合報告は、システム管理者までご連絡ください。</p>
+        </div>
+    </div>
+</body>
+</html>

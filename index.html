@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プログラミングスクール生徒名簿</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1>🎓 プログラミングスクール生徒名簿</h1>
+                <a href="manual.html" style="background: white; color: #667eea; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">📖 取扱説明書</a>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalStudents">40</span>
+                    <span class="stat-label">生徒数</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="maleCount">20</span>
+                    <span class="stat-label">男子</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="femaleCount">20</span>
+                    <span class="stat-label">女子</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="名前、ふりがな、得意分野で検索...">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全て</button>
+                <button class="filter-btn" data-filter="男">男子</button>
+                <button class="filter-btn" data-filter="女">女子</button>
+            </div>
+            <button class="btn-primary" id="addStudent">+ 生徒を追加</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>氏名</th>
+                        <th>ふりがな</th>
+                        <th>生年月日</th>
+                        <th>年齢</th>
+                        <th>性別</th>
+                        <th>得意分野</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">生徒情報を編集</h2>
+            <form id="studentForm">
+                <div class="form-group">
+                    <label for="inputName">氏名</label>
+                    <input type="text" id="inputName" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputFurigana">ふりがな</label>
+                    <input type="text" id="inputFurigana" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputBirthdate">生年月日</label>
+                    <input type="date" id="inputBirthdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputGender">性別</label>
+                    <select id="inputGender" required>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputSpecialty">得意分野</label>
+                    <select id="inputSpecialty" required>
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Java">Java</option>
+                        <option value="C++">C++</option>
+                        <option value="C#">C#</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Go言語">Go言語</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="Swift">Swift</option>
+                        <option value="React">React</option>
+                        <option value="Vue.js">Vue.js</option>
+                        <option value="Node.js">Node.js</option>
+                        <option value="データ分析">データ分析</option>
+                        <option value="機械学習">機械学習</option>
+                        <option value="Webデザイン">Webデザイン</option>
+                        <option value="CSS/HTML">CSS/HTML</option>
+                        <option value="UI/UX">UI/UX</option>
+                        <option value="データベース">データベース</option>
+                        <option value="Android開発">Android開発</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-secondary" id="cancelBtn">キャンセル</button>
+                    <button type="submit" class="btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
